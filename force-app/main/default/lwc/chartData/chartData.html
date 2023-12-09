@@ -1,0 +1,14 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-small">
+            <lightning-card title="Total Opportunity">
+                <template if:true={lineChartLabels.length}>
+                <c-line-chart-api-version type="line" 
+                chart-heading="Opportunities"
+                chart-data={lineChartData}
+                chart-labels={lineChartLabels}></c-line-chart-api-version><!--we are calling chart here but passing this data from here to child component "lineChartApiVersion" then there in js file we'll catch these-->
+            </template>
+            </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

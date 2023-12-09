@@ -1,0 +1,257 @@
+<template>
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Header Start -->
+                <header class="slds-modal__header">
+                    <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                        icon-class="slds-button_icon-inverse" onclick={handleDialogClose}></lightning-button-icon>
+
+                    <h2 class="slds-text-heading_medium slds-hyphenate header-string">
+                        Data Trends
+                    </h2>
+                </header>
+                <!-- Header End -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <slot>
+
+                        <table style="width:100%">
+
+                            <tbody style="width:100%">
+                                <tr style="width:100%">
+                                    <td style="width:100%" colspan="2">
+                                        <table style="width:100%">
+
+                                            <tbody style="width:100%">
+                                                <tr style="width:100%">
+                                                    
+                                                    <td style="width:30%">
+                                                        <p style="color: #0000ff; text-align: center;">Filter Condition</p>
+                                                        <div class="slds-var-m-around_small">
+                                                          <lightning-combobox
+                                                          name="Industry"
+                                                          label="Industry"
+                                                          value={selectedIndustry}
+                                                          placeholder="Select Industry"
+                                                          options={industryOptions}
+                                                          onchange={handleIndustryChange} >
+                                                          </lightning-combobox>
+                                                          <lightning-combobox
+                                                          name="Type"
+                                                          label="Type"
+                                                          value={selectedType}
+                                                          placeholder="Select Type"
+                                                          options={typeOptions}
+                                                          onchange={handleTypeChange} >
+                                                          </lightning-combobox>
+                                                        </div>
+                                                    </td>
+                                                    <td style="width:70%">
+                                                        <p style="color: #0000ff; text-align: center;">Data Trends</p>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+
+                                <tr style="width:100%">
+                                    
+                                    <td style="width:30%">
+                                        <div class="slds-vertical-tabs">
+                                            <ul class="slds-vertical-tabs__nav" role="tablist" aria-orientation="vertical">
+                                              <li class="slds-vertical-tabs__nav-item" title="Accounts" role="presentation">
+                                                <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="slds-vertical-tabs-0" id="slds-vertical-tabs-2__nav">
+                                                  <span class="slds-vertical-tabs__left-icon">
+                                                    <span class="slds-icon_container slds-icon-standard-account" title="Description of icon when needed">
+                                                      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                  <span class="slds-truncate" title="Accounts" onclick={handleAcc}>Accounts</span>
+                                                  <span class="slds-vertical-tabs__right-icon"></span>
+                                                </a>
+                                              </li>
+                                              <li class="slds-vertical-tabs__nav-item" title="Opportunities" role="presentation">
+                                                <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="0" aria-selected="false" aria-controls="slds-vertical-tabs-1" id="slds-vertical-tabs-0__nav">
+                                                  <span class="slds-vertical-tabs__left-icon">
+                                                    <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                                                      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                  <span class="slds-truncate" title="Opportunities" onclick={handleOpp}>Opportunities</span>
+                                                  <span class="slds-vertical-tabs__right-icon"></span>
+                                                </a>
+                                              </li>
+                                              <li class="slds-vertical-tabs__nav-item" title="Cases" role="presentation">
+                                                <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="slds-vertical-tabs-2" id="slds-vertical-tabs-1__nav">
+                                                  <span class="slds-vertical-tabs__left-icon">
+                                                    <span class="slds-icon_container slds-icon-standard-case" title="Description of icon when needed">
+                                                      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#case"></use>
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                  <span class="slds-truncate" title="Cases" onclick={handleCase}>Cases</span>
+                                                  <span class="slds-vertical-tabs__right-icon"></span>
+                                                </a>
+                                              </li>
+                                              
+                                              <li class="slds-vertical-tabs__nav-item" title="Leads" role="presentation">
+                                                <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="slds-vertical-tabs-3" id="slds-vertical-tabs-3__nav">
+                                                  <span class="slds-vertical-tabs__left-icon">
+                                                    <span class="slds-icon_container slds-icon-standard-lead" title="Description of icon when needed">
+                                                      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                  <span class="slds-truncate" title="Leads" onclick={handleLead}>Leads</span>
+                                                  <span class="slds-vertical-tabs__right-icon"></span>
+                                                </a>
+                                              </li>
+                                              <li class="slds-vertical-tabs__nav-item" title="Contacts" role="presentation">
+                                                <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="slds-vertical-tabs-4" id="slds-vertical-tabs-4__nav">
+                                                  <span class="slds-vertical-tabs__left-icon">
+                                                    <span class="slds-icon_container slds-icon-standard-contact" title="Description of icon when needed">
+                                                      <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                                                      </svg>
+                                                    </span>
+                                                  </span>
+                                                  <span class="slds-truncate" title="Contacts" onclick={handleCon}>Contacts</span>
+                                                  <span class="slds-vertical-tabs__right-icon"></span>
+                                                </a>
+                                              </li>
+                                            </ul>
+                                            <!-- <template if:true={accOption}>
+                                            <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" role="tabpanel" aria-labelledby="slds-vertical-tabs-0__nav">
+                                              <div class="slds-text-longform">
+                                                
+                                              </div>
+                                            </div>
+                                            </template> -->
+                                            <!-- <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-1" role="tabpanel" aria-labelledby="slds-vertical-tabs-1__nav">
+                                              <div class="slds-text-longform">
+                                                <h3 class="slds-text-heading_medium">Tab Title</h3>
+                                                <p>Content for Tab 1</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                              </div>
+                                            </div>
+                                            <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-2" role="tabpanel" aria-labelledby="slds-vertical-tabs-2__nav">
+                                              <div class="slds-text-longform">
+                                                <h3 class="slds-text-heading_medium">Tab Title</h3>
+                                                <p>Content for Tab 1</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                              </div>
+                                            </div>
+                                            <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-3" role="tabpanel" aria-labelledby="slds-vertical-tabs-2__nav">
+                                              <div class="slds-text-longform">
+                                                <h3 class="slds-text-heading_medium">Tab Title</h3>
+                                                <p>Content for Tab 1</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                              </div>
+                                            </div>
+                                            <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-4" role="tabpanel" aria-labelledby="slds-vertical-tabs-2__nav">
+                                              <div class="slds-text-longform">
+                                                <h3 class="slds-text-heading_medium">Tab Title</h3>
+                                                <p>Content for Tab 1</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                                <p>Lorem ipsum dolor...</p>
+                                              </div>
+                                            </div> -->
+                                        </div>
+                                    </td>
+
+                                    <td style="width:70%">
+                                        <table style="width:100%">
+
+                                            <tbody style="width:100%">
+                                                <tr style="width:100%">
+                                                    <td style="width:100%">
+                                                        <p style="font-size: 10px;">Lorem ipsum dolor sit amet,
+                                                            consectetur adipiscing elit, sed do eiusmod tempor
+                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
+                                                            minim veniam, quis nostrud exercitation ullamco laboris nisi
+                                                            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                                            reprehenderit in voluptate velit esse cillum dolore eu
+                                                            fugiat nulla pariatur.</p>
+                                                    </td>
+                                                </tr>
+                                                <tr style="width:100%">
+                                                    <td style="width:100%;">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr style="width:100%">
+                                                    <td style="width:100%; text-align: center;">
+                                                        <input type="radio" id="weeklyRadio1" name="Radio"
+                                                            value="weeklyRadio" onchange={handleRadioChange}
+                                                            checked="checked" style="margin-right: 5px;">
+                                                        <label for="weeklyRadio1">Weekly</label>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <input type="radio" id="monthlyRadio1" name="Radio"
+                                                            value="monthlyRadio" onchange={handleRadioChange}
+                                                            style="margin-right: 5px;">
+                                                        <label for="monthlyRadio1">Monthly</label>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <input type="radio" id="quarterlyRadio1" name="Radio"
+                                                            value="quarterlyRadio" onchange={handleRadioChange}
+                                                            style="margin-right: 5px;">
+                                                        <label for="quarterlyRadio1">Quarterly</label>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="width:100%">
+                                                    <td style="width:100%">
+                                                        <template if:true={weekelyFieldValue}>
+                                                            <template if:true={chartLoaded}>
+                                                                <c-bar-chart-for-limit-service
+                                                                    chart-config={chartConfiguration}></c-bar-chart-for-limit-service>
+                                                            </template>
+                                                        </template>
+                                                        <template if:true={monthlyFieldValue}>
+                                                            <template if:true={chartLoaded}>
+                                                                <c-bar-chart-for-limit-service
+                                                                    chart-config={chartConfiguration}></c-bar-chart-for-limit-service>
+                                                            </template>
+                                                        </template>
+                                                        <template if:true={quarterlyFieldValue}>
+                                                            <template if:true={chartLoaded}>
+                                                                <c-bar-chart-for-limit-service
+                                                                    chart-config={chartConfiguration}></c-bar-chart-for-limit-service>
+                                                            </template>
+                                                        </template>
+
+                                                        <b>
+                                                            <p style="text-align: center; font-size: 12px;">Week on Week Plot</p>
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </slot>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

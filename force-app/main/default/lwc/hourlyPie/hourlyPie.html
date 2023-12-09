@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="HourlyDashboardStatuses Limits" icon-name="utility:chart">
+        <div class="slds-m-bottom--medium help">
+            <lightning-helptext icon-name="utility:info_alt" class="icn"
+                content="Helptext example using a default icon. Mouse over or focus on the icon to view the helptext content."></lightning-helptext>
+        </div>
+        
+       
+        <template if:true={chartLoaded}>
+            <c-hourly-pie-child chart-config={chartConfiguration}></c-hourly-pie-child>
+               
+         </template>
+     </lightning-card>
+</template>

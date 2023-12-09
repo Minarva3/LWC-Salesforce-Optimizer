@@ -1,0 +1,15 @@
+/*.chart1{
+    height : 20%;
+    width:20%;
+   
+}
+
+.p1{
+    left:40%;
+    position:absolute;
+    top:115%;
+}*/
+.slds-modal__container{
+    max-width: 60rem ;
+    width: 80% ;
+}

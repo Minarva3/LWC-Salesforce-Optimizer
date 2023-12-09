@@ -1,0 +1,15 @@
+.btag {
+    text-align: right;
+    top: 92%;
+    left: 83%;
+    position: absolute;
+    --sds-c-button-text-color :#5c7cfa;
+}
+
+.help{
+    position:absolute;
+    top:2.4%;
+    left: 23.5%;
+    --lwc-colorTextIconDefault: #6acafa;
+
+}

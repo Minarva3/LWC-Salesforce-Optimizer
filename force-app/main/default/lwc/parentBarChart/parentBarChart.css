@@ -1,0 +1,53 @@
+.back {
+    text-align: left;
+    top: 87%;
+    left: 5%;
+    position: absolute;
+    --sds-c-button-color-background :#5c7cfa;
+    
+    --lwc-colorTextIconDefault: white;
+    
+
+    
+
+    
+    /*background: rgb(163, 205, 231);*/
+
+}
+
+.output {
+    text-align: right;
+    top: 87%;
+    left: 95%;
+    position: absolute;
+    --sds-c-button-color-background :#5c7cfa;
+    
+    --lwc-colorTextIconDefault: white;
+   
+    /*background:  rgb(163, 205, 231);*/
+
+}
+
+
+
+.btag {
+    text-align: right;
+    top: 92%;
+    left: 83%;
+    position: absolute;
+    
+    --slds-c-button-text-color:#5c7cfa;
+    
+}
+
+.help{
+    position:absolute;
+    top:16%;
+    
+    left: 11%;
+    
+    --lwc-colorTextIconDefault: #6acafa;
+    
+
+
+}

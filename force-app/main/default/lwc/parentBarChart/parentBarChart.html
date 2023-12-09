@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Daily Email Limits-Test" icon-name="utility:chart">
+        <template if:true={chartLoaded}>
+           
+           <c-child-bar-chart chart-config={chartConfiguration} ></c-child-bar-chart> 
+            <!-- <c-bar-chart-for-limit-service chart-config={chartConfiguration}></c-bar-chart-for-limit-service> -->
+            <div class="slds-m-bottom--medium help">
+                
+                <lightning-helptext  icon-name="utility:info_alt"  class="icn"   content="Helptext example using a default icon. Mouse over or focus on the icon to view the helptext content."></lightning-helptext>
+            </div>
+            <!--<lightning-button-icon icon-name="action:back"  alternative-text="Settings" title="Settings" size="xx-small" class="back slds-m-around_xxx-small" onclick={prev}></lightning-button-icon>
+
+            <lightning-button-icon icon-name="standard:output"  alternative-text="Settings" title="Settings" size="xx-small" class="output slds-m-around_xxx-small" onclick={next}></lightning-button-icon>
+            -->
+           <lightning-button-icon icon-name="utility:back"   alternative-text="Settings"  size="xx-small" class="back slds-m-around_xxx-small" onclick={prev}></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:forward"    alternative-text="Settings" size="xx-small" class="output slds-m-around_xxx-small" onclick={next}></lightning-button-icon>
+                
+            <lightning-button variant="base" label="More Details..." onclick={handleModal} class="slds-m-left_x-small btag "></lightning-button>
+            <c-more-details-cmp-for-bar-chart></c-more-details-cmp-for-bar-chart>
+            
+
+
+        </template>
+</lightning-card>
+</template>

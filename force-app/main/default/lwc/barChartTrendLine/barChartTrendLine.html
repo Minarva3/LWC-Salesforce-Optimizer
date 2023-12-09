@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="API Limits" icon-name="utility:chart">
+        <div class="slds-m-bottom--medium help">
+            <lightning-helptext icon-name="utility:info_alt" class="icn"
+                content="Helptext example using a default icon. Mouse over or focus on the icon to view the helptext content."></lightning-helptext>
+        </div>
+        <template if:true={chartLoaded}>
+
+            <c-bar-chart-for-limit-service chart-config={chartConfiguration}></c-bar-chart-for-limit-service>
+            <lightning-button-icon icon-name="utility:back" alternative-text="Settings" size="xx-small"
+                class="back slds-m-around_xxx-small" onclick={prev}></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:forward" alternative-text="Settings" size="xx-small"
+                class="output slds-m-around_xxx-small" onclick={next}></lightning-button-icon>
+
+            <lightning-button variant="base" label="More Details..." onclick={handleModal}
+                class="slds-m-left_x-small btag "></lightning-button>
+            <c-more-details-cmp-for-trend-line></c-more-details-cmp-for-trend-line>
+
+        </template>
+    </lightning-card>
+</template>

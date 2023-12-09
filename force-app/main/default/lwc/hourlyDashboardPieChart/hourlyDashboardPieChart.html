@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="HourlyDashboardStatuses Limits" icon-name="utility:chart">
+        <div class="slds-m-bottom--medium help">
+            <lightning-helptext icon-name="utility:info_alt" class="icn"
+                content="Helptext example using a default icon. Mouse over or focus on the icon to view the helptext content."></lightning-helptext>
+        </div>
+        
+        <template if:true={chartLoaded}>
+            <div class="slds-p-around_small slds-grid slds-grid--vertical-align-center slds-grid--align-center">
+                <canvas class="barChart" lwc:dom="manual"></canvas>
+                
+                <div if:false={isChartJsInitialized} class="slds-col--padded slds-size--1-of-1">
+
+                    <lightning-spinner alternative-text="Loading" size="medium" variant="base"></lightning-spinner>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

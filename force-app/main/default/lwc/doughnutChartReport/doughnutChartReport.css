@@ -1,0 +1,35 @@
+.icn{
+    position:absolute;
+    top:2.5%;
+    left: 18.5%;
+    --lwc-colorTextIconDefault: #6acafa;
+
+}
+.icn1{
+    position:absolute;
+    top:16%;
+    right: 1%;
+    --lwc-colorTextIconDefault: #6acafa;
+
+}
+.icn2{
+    position:absolute;
+    top:22%;
+    right: 11%;
+    --lwc-colorTextIconDefault: #6acafa;
+
+}
+.icn3{
+    position:absolute;
+    top:28%;
+    right: 8%;
+    --lwc-colorTextIconDefault: #6acafa;
+
+}
+.btag {
+    text-align: right;
+    top: 92%;
+    left: 83%;
+    position: absolute;
+    --sds-c-button-text-color :#5c7cfa;
+}
