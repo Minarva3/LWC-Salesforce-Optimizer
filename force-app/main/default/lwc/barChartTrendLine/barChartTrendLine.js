@@ -35,8 +35,8 @@ export default class BarChartForLimitServiceParent extends LightningElement {
                     chartLabel.push(finalKeyVal);
                     data[key].forEach(limitObj => {
                         //console.log('======limitObj=======' +limitObj);
-                        //console.log('======Limit_Name__c=======' + limitObj.louie976__Limit_Name__c);
-                        if (limitObj.louie976__Limit_Name__c == 'DailyApiRequests') {
+                        //console.log('======Limit_Name__c=======' + limitObj.Limit_Name__c);
+                        if (limitObj.Limit_Name__c == 'DailyApiRequests') {
                             //console.log('======Max=======' + limitObj.louie976__Max__c);
                             chartDataForBlue.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
                             chartDataForGray.push(limitObj.louie976__Remaining__c);

@@ -75,10 +75,10 @@ export default class MoreDetailCmpForApiVersion extends LightningElement {
 
                     chartLabel.push(key);
                     data[key].forEach(limitObj => {
-                        if (limitObj.louie976__Limit_Name__c == 'DataStorageMB') {
+                        if (limitObj.Limit_Name__c == 'DataStorageMB') {
                             sumDataStorageMB += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;
                         }
-                        if (limitObj.louie976__Limit_Name__c == 'FileStorageMB') {
+                        if (limitObj.Limit_Name__c == 'FileStorageMB') {
                             sumFileStorageMB += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;
                         }
                         //if (limitObj.Limit_Name__c == 'DailyWorkflowEmails') {

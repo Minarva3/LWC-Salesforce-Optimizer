@@ -78,13 +78,13 @@ export default class MoreDetailsCmpForBarChart extends LightningElement {
 
                         chartLabel.push(key);
                         data[key].forEach(limitObj => {
-                            if (limitObj.louie976__Limit_Name__c == 'SingleEmail') {
+                            if (limitObj.Limit_Name__c == 'SingleEmail') {
                                 sumSingleValue += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;
                             }
-                            if (limitObj.louie976__Limit_Name__c == 'MassEmail') {
+                            if (limitObj.Limit_Name__c == 'MassEmail') {
                                 sumMassValue += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;   
                             }
-                            if (limitObj.louie976__Limit_Name__c == 'DailyWorkflowEmails') {
+                            if (limitObj.Limit_Name__c == 'DailyWorkflowEmails') {
                                 sumWorkflowValue += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;                             
                             }
 

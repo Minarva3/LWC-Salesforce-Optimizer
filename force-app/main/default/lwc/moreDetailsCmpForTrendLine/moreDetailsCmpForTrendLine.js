@@ -70,7 +70,7 @@ export default class MoreDetailsCmpForTrendLine extends LightningElement {
                     chartLabel.push(key);
                     data[key].forEach(limitObj => {
                         
-                        if (limitObj.louie976__Limit_Name__c == 'DailyApiRequests') {
+                        if (limitObj.Limit_Name__c == 'DailyApiRequests') {
                             //console.log('======key====='+key);
                             sumDataBlue += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;
                             sumDataGray += limitObj.louie976__Remaining__c;

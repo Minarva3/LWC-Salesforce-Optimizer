@@ -30,7 +30,7 @@ public with sharing class LimitServiceCmpController {
             if(!dailyLimitsRecordList.isEmpty()){
                 for(Limit__c objLimit : dailyLimitsRecordList){
                     EmailLimitWrapper wrp = new EmailLimitWrapper();
-                    wrp.limitName = objLimit.louie976__Limit_Name__c;
+                    wrp.limitName = objLimit.Limit_Name__c;
                     wrp.limitObj = objLimit;
                     wrpList.add(wrp);
                 }
@@ -169,8 +169,8 @@ public with sharing class LimitServiceCmpController {
             fromDate = weekStartDate.adddays(7);
         }
             
-        List<Limit__c> limitList = [select id,louie976__Limit_Name__c,louie976__Max__c,louie976__Remaining__c,louie976__Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
-                                    where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDate AND louie976__Record_Date__c <=:fromDate AND louie976__Limit_Name__c IN: limitNameSet];
+        List<Limit__c> limitList = [select id,Limit_Name__c,louie976__Max__c,louie976__Remaining__c,Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
+                                    where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDate AND louie976__Record_Date__c <=:fromDate AND Limit_Name__c IN: limitNameSet];
         
         limitMap.put('Mon '+weekStartDate.adddays(+1).format(),new List<Limit__c>());
         limitMap.put('Tue '+weekStartDate.adddays(+2).format(),new List<Limit__c>());
@@ -253,8 +253,8 @@ public with sharing class LimitServiceCmpController {
         limitMap.put('W2',new List<Limit__c>());
         limitMap.put('W3',new List<Limit__c>());
         limitMap.put('W4',new List<Limit__c>());
-        List<Limit__c> limitList = [select id,louie976__Limit_Name__c,louie976__Max__c,louie976__Remaining__c,louie976__Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
-                                    where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate AND louie976__Limit_Name__c IN: limitNameSet];
+        List<Limit__c> limitList = [select id,Limit_Name__c,louie976__Max__c,louie976__Remaining__c,Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
+                                    where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate AND Limit_Name__c IN: limitNameSet];
         
         for(Limit__c objLimit : limitList) {
             

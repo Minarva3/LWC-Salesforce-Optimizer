@@ -34,11 +34,11 @@ export default class StorageLimitParentCmp extends LightningElement {
                         //let result = text.substr(4, 4);
                         chartLabel.push(finalKeyVal);
                         data[key].forEach(limitObj => {
-                            if (limitObj.louie976__Limit_Name__c == 'FileStorageMB') {
+                            if (limitObj.Limit_Name__c == 'FileStorageMB') {
                                 
                                 fileStorageMB.push({y:limitObj.louie976__Max__c - limitObj.louie976__Remaining__c,x:0});
                             }
-                            if (limitObj.louie976__Limit_Name__c == 'DataStorageMB') {
+                            if (limitObj.Limit_Name__c == 'DataStorageMB') {
                                 
                                 dataStorageMB.push({y:limitObj.louie976__Max__c - limitObj.louie976__Remaining__c,x:0});
                             }

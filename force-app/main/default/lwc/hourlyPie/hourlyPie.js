@@ -38,7 +38,7 @@ export default class HourlyPie  extends LightningElement {
                     //let result = text.substr(4, 4);
                     chartLabel.push(finalKeyVal);
                     data[key].forEach(limitObj => {
-                        if (limitObj.louie976__Limit_Name__c == 'HourlyDashboardStatuses') {
+                        if (limitObj.Limit_Name__c == 'HourlyDashboardStatuses') {
                             dataHourlyDashboardStatuses.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
                         }
 

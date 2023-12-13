@@ -35,13 +35,13 @@ export default class BarChartForLimitServiceParent extends LightningElement {
                     //let result = text.substr(4, 4);
                     chartLabel.push(finalKeyVal);
                     data[key].forEach(limitObj => {
-                        if (limitObj.louie976__Limit_Name__c == 'SingleEmail') {
+                        if (limitObj.Limit_Name__c == 'SingleEmail') {
                             chartSingleEmail.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
                         }
-                        if (limitObj.louie976__Limit_Name__c == 'MassEmail') {
+                        if (limitObj.Limit_Name__c == 'MassEmail') {
                             chartMassEmail.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
                         }
-                        if (limitObj.louie976__Limit_Name__c == 'DailyWorkflowEmails') {
+                        if (limitObj.Limit_Name__c == 'DailyWorkflowEmails') {
                             chartWorkflowEmail.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
                         }
 
