@@ -10,8 +10,8 @@ public with sharing class LimitServiceCmpController {
 
     //Get Daily Email Limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> GetAllLimits(Integer val){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> GetAllLimits(Integer val){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'SingleEmail','MassEmail','DailyWorkflowEmails'};
 			limitMap = returnLimitMap(val,limitNameSet);
@@ -26,9 +26,9 @@ public with sharing class LimitServiceCmpController {
     public static List<EmailLimitWrapper> getEmailAllLimits(){
         List<EmailLimitWrapper> wrpList = new List<EmailLimitWrapper>();
         try{
-            List<louie976__Limit__c> dailyLimitsRecordList = LimitsCounterService.getAllDailyLimits();
+            List<Limit__c> dailyLimitsRecordList = LimitsCounterService.getAllDailyLimits();
             if(!dailyLimitsRecordList.isEmpty()){
-                for(louie976__Limit__c objLimit : dailyLimitsRecordList){
+                for(Limit__c objLimit : dailyLimitsRecordList){
                     EmailLimitWrapper wrp = new EmailLimitWrapper();
                     wrp.limitName = objLimit.louie976__Limit_Name__c;
                     wrp.limitObj = objLimit;
@@ -45,13 +45,13 @@ public with sharing class LimitServiceCmpController {
         @AuraEnabled
         public String limitName;
         @AuraEnabled
-        public louie976__Limit__c limitObj;
+        public Limit__c limitObj;
     }
 
     //Get Daily Email weekly Limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getBarChartLimits(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getBarChartLimits(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'SingleEmail','MassEmail','DailyWorkflowEmails'};
             limitMap = returnChildCmpMap(limitNameSet);
@@ -63,8 +63,8 @@ public with sharing class LimitServiceCmpController {
 
     //Get Storage Limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getStorageLimit(Integer val){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getStorageLimit(Integer val){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'DataStorageMB','FileStorageMB'};
             limitMap = returnLimitMap(val,limitNameSet);
@@ -76,8 +76,8 @@ public with sharing class LimitServiceCmpController {
 
     //Get Storage Weekly Limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getStorageWeeklyLimits(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getStorageWeeklyLimits(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'DataStorageMB','FileStorageMB'};
             limitMap = returnChildCmpMap(limitNameSet);
@@ -89,8 +89,8 @@ public with sharing class LimitServiceCmpController {
 
     //Get API Limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getAllAPILimits(Integer val){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getAllAPILimits(Integer val){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'DailyApiRequests'};
             limitMap = returnLimitMap(val,limitNameSet);
@@ -103,8 +103,8 @@ public with sharing class LimitServiceCmpController {
 
     //get Weekly Trend API Limits
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getWeeklyTrendAPILimits(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getWeeklyTrendAPILimits(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'DailyApiRequests'};
             limitMap = returnChildCmpMap(limitNameSet);  
@@ -116,8 +116,8 @@ public with sharing class LimitServiceCmpController {
 
     //get Dashboard limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getDashboardLimits(Integer val){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getDashboardLimits(Integer val){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'HourlyAsyncReportRuns','HourlySyncReportRuns','HourlyDashboardRefreshes','HourlyDashboardResults'};
             limitMap = returnLimitMap(val,limitNameSet);
@@ -129,8 +129,8 @@ public with sharing class LimitServiceCmpController {
 
     //get Weekly DashBoard Limits
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getWeeklyDashboardLimits(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getWeeklyDashboardLimits(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'HourlyAsyncReportRuns','HourlySyncReportRuns','HourlyDashboardRefreshes','HourlyDashboardResults'};
             limitMap = returnChildCmpMap(limitNameSet);
@@ -142,8 +142,8 @@ public with sharing class LimitServiceCmpController {
 
     //get HourlyDashboardStatuses limit
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getHourlyDashboardPieChartLimits(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getHourlyDashboardPieChartLimits(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'HourlyDashboardStatuses'};
             limitMap = returnLimitMap(0,limitNameSet);
@@ -154,9 +154,9 @@ public with sharing class LimitServiceCmpController {
     }
 
     //Return Parent Cmp Values
-    public static map<String,List<louie976__Limit__c>> returnLimitMap(Integer val, Set<String> limitNameSet) {
+    public static map<String,List<Limit__c>> returnLimitMap(Integer val, Set<String> limitNameSet) {
 
-		map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+		map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
 		Date weekStartDate;
         Date fromDate;
         if(val == 0) {
@@ -169,18 +169,18 @@ public with sharing class LimitServiceCmpController {
             fromDate = weekStartDate.adddays(7);
         }
             
-        List<louie976__Limit__c> limitList = [select id,louie976__Limit_Name__c,louie976__Max__c,louie976__Remaining__c,louie976__Limit_Type__c,createddate,louie976__Record_Date__c from louie976__Limit__c 
+        List<Limit__c> limitList = [select id,louie976__Limit_Name__c,louie976__Max__c,louie976__Remaining__c,louie976__Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
                                     where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDate AND louie976__Record_Date__c <=:fromDate AND louie976__Limit_Name__c IN: limitNameSet];
         
-        limitMap.put('Mon '+weekStartDate.adddays(+1).format(),new List<louie976__Limit__c>());
-        limitMap.put('Tue '+weekStartDate.adddays(+2).format(),new List<louie976__Limit__c>());
-        limitMap.put('Wed '+weekStartDate.adddays(+3).format(),new List<louie976__Limit__c>());
-        limitMap.put('Thu '+weekStartDate.adddays(+4).format(),new List<louie976__Limit__c>());
-        limitMap.put('Fri '+weekStartDate.adddays(+5).format(),new List<louie976__Limit__c>());
-        limitMap.put('Sat '+weekStartDate.adddays(+6).format(),new List<louie976__Limit__c>());
-        limitMap.put('Sun '+weekStartDate.adddays(+7).format(),new List<louie976__Limit__c>());
+        limitMap.put('Mon '+weekStartDate.adddays(+1).format(),new List<Limit__c>());
+        limitMap.put('Tue '+weekStartDate.adddays(+2).format(),new List<Limit__c>());
+        limitMap.put('Wed '+weekStartDate.adddays(+3).format(),new List<Limit__c>());
+        limitMap.put('Thu '+weekStartDate.adddays(+4).format(),new List<Limit__c>());
+        limitMap.put('Fri '+weekStartDate.adddays(+5).format(),new List<Limit__c>());
+        limitMap.put('Sat '+weekStartDate.adddays(+6).format(),new List<Limit__c>());
+        limitMap.put('Sun '+weekStartDate.adddays(+7).format(),new List<Limit__c>());
         
-        for(louie976__Limit__c objLimit : limitList){
+        for(Limit__c objLimit : limitList){
             system.debug('=====objLimit======'+objLimit.louie976__Record_Date__c);
             Datetime dt = objLimit.louie976__Record_Date__c;
             system.debug('=====dt======'+dt);
@@ -195,7 +195,7 @@ public with sharing class LimitServiceCmpController {
             String DateString = myDate.month() + '/' + myDate.day() + '/' + myDate.year();
             system.debug('=====DateString======'+DateString);
             if(!limitMap.containsKey(dayOfWeek.substring(0,3)+' '+DateString)) {
-                List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                List<Limit__c> limitList2 = new List<Limit__c>();
                 limitList2.add(objLimit);                      
                 limitMap.put(dayOfWeek.substring(0,3)+' '+DateString,limitList2);
             } else {                       
@@ -220,9 +220,9 @@ public with sharing class LimitServiceCmpController {
     }
 
     //Return Child Cmp Values
-    public static map<String,List<louie976__Limit__c>> returnChildCmpMap(Set<String> limitNameSet) {
+    public static map<String,List<Limit__c>> returnChildCmpMap(Set<String> limitNameSet) {
 
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         Date weekStartDateW1;
         Date weekEndDateW1;
         Date weekStartDateW2;
@@ -249,18 +249,18 @@ public with sharing class LimitServiceCmpController {
         weekStartDateW4 = date.valueOf(dateStringW4.SubStringBefore('#'));
         weekEndDateW4 = date.valueOf(dateStringW4.SubStringAfter('#'));
         
-        limitMap.put('W1',new List<louie976__Limit__c>());
-        limitMap.put('W2',new List<louie976__Limit__c>());
-        limitMap.put('W3',new List<louie976__Limit__c>());
-        limitMap.put('W4',new List<louie976__Limit__c>());
-        List<louie976__Limit__c> limitList = [select id,louie976__Limit_Name__c,louie976__Max__c,louie976__Remaining__c,louie976__Limit_Type__c,createddate,louie976__Record_Date__c from louie976__Limit__c 
+        limitMap.put('W1',new List<Limit__c>());
+        limitMap.put('W2',new List<Limit__c>());
+        limitMap.put('W3',new List<Limit__c>());
+        limitMap.put('W4',new List<Limit__c>());
+        List<Limit__c> limitList = [select id,louie976__Limit_Name__c,louie976__Max__c,louie976__Remaining__c,louie976__Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
                                     where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate AND louie976__Limit_Name__c IN: limitNameSet];
         
-        for(louie976__Limit__c objLimit : limitList) {
+        for(Limit__c objLimit : limitList) {
             
             if(objLimit.louie976__Record_Date__c > weekStartDateW1 && objLimit.louie976__Record_Date__c <= weekEndDateW1) {
                 if(!limitMap.containsKey('W1')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W1',limitList2);
                 } else {                       
@@ -269,7 +269,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > weekStartDateW2 && objLimit.louie976__Record_Date__c <= weekEndDateW2) {
                 if(!limitMap.containsKey('W2')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W2',limitList2);
                 } else {                       
@@ -278,7 +278,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > weekStartDateW3 && objLimit.louie976__Record_Date__c <= weekEndDateW3) {
                 if(!limitMap.containsKey('W3')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W3',limitList2);
                 } else {                       
@@ -287,7 +287,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > weekStartDateW4 && objLimit.louie976__Record_Date__c <= weekEndDateW4) {
                 if(!limitMap.containsKey('W4')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W4',limitList2);
                 } else {                       
@@ -313,8 +313,8 @@ public with sharing class LimitServiceCmpController {
 
 
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getMonthlyApiVersionCount(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getMonthlyApiVersionCount(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'10-20','20-30','30-40','40-50','50-60'};
             limitMap = returnMonthApiVersionMap(limitNameSet);
@@ -324,9 +324,9 @@ public with sharing class LimitServiceCmpController {
         return limitMap;
     }
 
-    public static map<String,List<louie976__Limit__c>> returnMonthApiVersionMap(Set<String> limitNameSet) {
+    public static map<String,List<Limit__c>> returnMonthApiVersionMap(Set<String> limitNameSet) {
 
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         Date monthStartDateM1;
         Date monthEndDateM1;
         Date monthStartDateM2;
@@ -354,18 +354,18 @@ public with sharing class LimitServiceCmpController {
         monthStartDateM4 = date.valueOf(dateStringM4.SubStringBefore('#'));
         monthEndDateM4 = date.valueOf(dateStringM4.SubStringAfter('#'));
         
-        limitMap.put('M1',new List<louie976__Limit__c>());
-        limitMap.put('M2',new List<louie976__Limit__c>());
-        limitMap.put('M3',new List<louie976__Limit__c>());
-        limitMap.put('M4',new List<louie976__Limit__c>());
-        List<louie976__Limit__c> limitList = [select id, louie976__API_Version_Range__c, louie976__API_Version_Count__c, louie976__Record_Date__c from louie976__Limit__c 
+        limitMap.put('M1',new List<Limit__c>());
+        limitMap.put('M2',new List<Limit__c>());
+        limitMap.put('M3',new List<Limit__c>());
+        limitMap.put('M4',new List<Limit__c>());
+        List<Limit__c> limitList = [select id, louie976__API_Version_Range__c, louie976__API_Version_Count__c, louie976__Record_Date__c from Limit__c 
                                     where louie976__Record_Date__c != null AND louie976__API_Version_Range__c !=null AND louie976__API_Version_Count__c !=null AND louie976__Record_Date__c >: monthStartDateM4 AND louie976__Record_Date__c <=: todayDate AND louie976__API_Version_Range__c IN: limitNameSet];
         
-        for(louie976__Limit__c objLimit : limitList) {
+        for(Limit__c objLimit : limitList) {
             
             if(objLimit.louie976__Record_Date__c > monthStartDateM4 && objLimit.louie976__Record_Date__c <= monthEndDateM4) {
                 if(!limitMap.containsKey('M1')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('M1',limitList2);
                 } else {                       
@@ -374,7 +374,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > monthStartDateM3 && objLimit.louie976__Record_Date__c <= monthEndDateM3){
                 if(!limitMap.containsKey('M2')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('M2',limitList2);
                 } else {                       
@@ -383,7 +383,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > monthStartDateM2 && objLimit.louie976__Record_Date__c <= monthEndDateM2) {
                 if(!limitMap.containsKey('M3')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('M3',limitList2);
                 } else {                       
@@ -392,7 +392,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > monthStartDateM1 && objLimit.louie976__Record_Date__c <= monthEndDateM1) {
                 if(!limitMap.containsKey('M4')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('M4',limitList2);
                 } else {                       
@@ -484,8 +484,8 @@ public with sharing class LimitServiceCmpController {
 // For moreDetailsCmpForApiVersion
 
     @AuraEnabled(cacheable=true)
-    public static map<String,List<louie976__Limit__c>> getWeeklyApiVersionCount(){
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+    public static map<String,List<Limit__c>> getWeeklyApiVersionCount(){
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         try {
             Set<String> limitNameSet = new Set<String>{'10-20','20-30','30-40','40-50','50-60'};
             limitMap = returnCmpApiVersionMap(limitNameSet);
@@ -495,9 +495,9 @@ public with sharing class LimitServiceCmpController {
         return limitMap;
     }
 
-    public static map<String,List<louie976__Limit__c>> returnCmpApiVersionMap(Set<String> limitNameSet) {
+    public static map<String,List<Limit__c>> returnCmpApiVersionMap(Set<String> limitNameSet) {
 
-        map<String,List<louie976__Limit__c>> limitMap = new map<String,List<louie976__Limit__c>>();
+        map<String,List<Limit__c>> limitMap = new map<String,List<Limit__c>>();
         Date weekStartDateW1;
         Date weekEndDateW1;
         Date weekStartDateW2;
@@ -525,18 +525,18 @@ public with sharing class LimitServiceCmpController {
         weekStartDateW4 = date.valueOf(dateStringW4.SubStringBefore('#'));
         weekEndDateW4 = date.valueOf(dateStringW4.SubStringAfter('#'));
         
-        limitMap.put('W1',new List<louie976__Limit__c>());
-        limitMap.put('W2',new List<louie976__Limit__c>());
-        limitMap.put('W3',new List<louie976__Limit__c>());
-        limitMap.put('W4',new List<louie976__Limit__c>());
-        List<louie976__Limit__c> limitList = [select id, louie976__API_Version_Range__c, louie976__API_Version_Count__c, louie976__Record_Date__c from louie976__Limit__c 
+        limitMap.put('W1',new List<Limit__c>());
+        limitMap.put('W2',new List<Limit__c>());
+        limitMap.put('W3',new List<Limit__c>());
+        limitMap.put('W4',new List<Limit__c>());
+        List<Limit__c> limitList = [select id, louie976__API_Version_Range__c, louie976__API_Version_Count__c, louie976__Record_Date__c from Limit__c 
                                     where louie976__Record_Date__c != null AND louie976__API_Version_Range__c !=null AND louie976__API_Version_Count__c !=null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate AND louie976__API_Version_Range__c IN: limitNameSet];
         
-        for(louie976__Limit__c objLimit : limitList) {
+        for(Limit__c objLimit : limitList) {
             
             if(objLimit.louie976__Record_Date__c > weekStartDateW4 && objLimit.louie976__Record_Date__c <= weekEndDateW4) {
                 if(!limitMap.containsKey('W1')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W1',limitList2);
                 } else {                       
@@ -545,7 +545,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > weekStartDateW3 && objLimit.louie976__Record_Date__c <= weekEndDateW3){
                 if(!limitMap.containsKey('W2')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W2',limitList2);
                 } else {                       
@@ -554,7 +554,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > weekStartDateW2 && objLimit.louie976__Record_Date__c <= weekEndDateW2) {
                 if(!limitMap.containsKey('W3')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W3',limitList2);
                 } else {                       
@@ -563,7 +563,7 @@ public with sharing class LimitServiceCmpController {
             }
             if(objLimit.louie976__Record_Date__c > weekStartDateW1 && objLimit.louie976__Record_Date__c <= weekEndDateW1) {
                 if(!limitMap.containsKey('W4')) {
-                    List<louie976__Limit__c> limitList2 = new List<louie976__Limit__c>();
+                    List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
                     limitMap.put('W4',limitList2);
                 } else {                       
