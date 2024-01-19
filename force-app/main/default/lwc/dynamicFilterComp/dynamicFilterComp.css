@@ -1,0 +1,24 @@
+.modal-open {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50% ;
+    height: auto;
+    background-color: rgba(168, 168, 168, 0.279);
+    z-index: 999;
+ 
+}
+.scrollable-options{
+    max-height: 300px;
+    overflow-y: auto;
+}
+.selected-values {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+ 
+.selected-values lightning-pill {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

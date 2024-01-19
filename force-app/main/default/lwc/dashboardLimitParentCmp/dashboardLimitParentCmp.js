@@ -37,16 +37,16 @@ export default class DashboardLimitParentCmp extends LightningElement {
                     chartLabel.push(finalKeyVal);
                     data[key].forEach(limitObj => {
                         if (limitObj.Limit_Name__c == 'HourlyDashboardResults') {
-                            chartHourlyDashboardResults.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
+                            chartHourlyDashboardResults.push(limitObj.Max__c - limitObj.Remaining__c);
                         }
                         if (limitObj.Limit_Name__c == 'HourlySyncReportRuns') {
-                            chartHourlySyncReportRuns.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
+                            chartHourlySyncReportRuns.push(limitObj.Max__c - limitObj.Remaining__c);
                         }
                         if (limitObj.Limit_Name__c == 'HourlyDashboardRefreshes') {
-                            chartHourlyDashboardRefreshes.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
+                            chartHourlyDashboardRefreshes.push(limitObj.Max__c - limitObj.Remaining__c);
                         }
                         if (limitObj.Limit_Name__c == 'HourlyAsyncReportRuns') {
-                            chartHourlyAsyncReportRuns.push(limitObj.louie976__Max__c - limitObj.louie976__Remaining__c);
+                            chartHourlyAsyncReportRuns.push(limitObj.Max__c - limitObj.Remaining__c);
                         }
 
                     });

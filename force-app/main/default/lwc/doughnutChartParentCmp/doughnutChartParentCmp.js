@@ -1,6 +1,6 @@
 import { LightningElement, api } from 'lwc';
 
-import ACCOUNT_FIELD from '@salesforce/schema/Contact.AccountId';
+ import ACCOUNT_FIELD from '@salesforce/schema/Contact.AccountId';
 import ACCOUNT_NAME from '@salesforce/schema/Contact.Account.Name';
 
 export default class doughnutChartParentCmp extends LightningElement {
@@ -9,6 +9,7 @@ export default class doughnutChartParentCmp extends LightningElement {
     @api objectApiName;
 
     fields = [ACCOUNT_NAME];
+    AccountId = [ACCOUNT_FIELD];
 
     get AccountId(){
         console.log("inside getter AccountId");

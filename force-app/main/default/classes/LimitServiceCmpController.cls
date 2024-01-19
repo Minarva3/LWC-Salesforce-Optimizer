@@ -169,8 +169,8 @@ public with sharing class LimitServiceCmpController {
             fromDate = weekStartDate.adddays(7);
         }
             
-        List<Limit__c> limitList = [select id,Limit_Name__c,louie976__Max__c,louie976__Remaining__c,Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
-                                    where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDate AND louie976__Record_Date__c <=:fromDate AND Limit_Name__c IN: limitNameSet];
+        List<Limit__c> limitList = [select id,Limit_Name__c,Max__c,Remaining__c,Limit_Type__c,createddate,Record_Date__c from Limit__c 
+                                    where Record_Date__c != null AND Record_Date__c >: weekStartDate AND Record_Date__c <=:fromDate AND Limit_Name__c IN: limitNameSet];
         
         limitMap.put('Mon '+weekStartDate.adddays(+1).format(),new List<Limit__c>());
         limitMap.put('Tue '+weekStartDate.adddays(+2).format(),new List<Limit__c>());
@@ -181,14 +181,14 @@ public with sharing class LimitServiceCmpController {
         limitMap.put('Sun '+weekStartDate.adddays(+7).format(),new List<Limit__c>());
         
         for(Limit__c objLimit : limitList){
-            system.debug('=====objLimit======'+objLimit.louie976__Record_Date__c);
-            Datetime dt = objLimit.louie976__Record_Date__c;
+            system.debug('=====objLimit======'+objLimit.Record_Date__c);
+            Datetime dt = objLimit.Record_Date__c;
             system.debug('=====dt======'+dt);
             //DateTime dtNew = dt.adddays(+1);
             //system.debug('=====dtNew======'+dtNew);
             String dayOfWeek = dt.format('EEEE');
             system.debug('=====dayOfWeek======'+dayOfWeek);
-            Date myDate = date.newinstance(objLimit.louie976__Record_Date__c.year(), objLimit.louie976__Record_Date__c.month(), objLimit.louie976__Record_Date__c.day());
+            Date myDate = date.newinstance(objLimit.Record_Date__c.year(), objLimit.Record_Date__c.month(), objLimit.Record_Date__c.day());
             system.debug('=====myDate======'+myDate);
             //Date myDateNew = myDate.adddays(+1);
             //system.debug('=====myDateNew======'+myDateNew);
@@ -253,12 +253,12 @@ public with sharing class LimitServiceCmpController {
         limitMap.put('W2',new List<Limit__c>());
         limitMap.put('W3',new List<Limit__c>());
         limitMap.put('W4',new List<Limit__c>());
-        List<Limit__c> limitList = [select id,Limit_Name__c,louie976__Max__c,louie976__Remaining__c,Limit_Type__c,createddate,louie976__Record_Date__c from Limit__c 
-                                    where louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate AND Limit_Name__c IN: limitNameSet];
+        List<Limit__c> limitList = [select id,Limit_Name__c,Max__c,Remaining__c,Limit_Type__c,createddate,Record_Date__c from Limit__c 
+                                    where Record_Date__c != null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate AND Limit_Name__c IN: limitNameSet];
         
         for(Limit__c objLimit : limitList) {
             
-            if(objLimit.louie976__Record_Date__c > weekStartDateW1 && objLimit.louie976__Record_Date__c <= weekEndDateW1) {
+            if(objLimit.Record_Date__c > weekStartDateW1 && objLimit.Record_Date__c <= weekEndDateW1) {
                 if(!limitMap.containsKey('W1')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -267,7 +267,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('W1').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > weekStartDateW2 && objLimit.louie976__Record_Date__c <= weekEndDateW2) {
+            if(objLimit.Record_Date__c > weekStartDateW2 && objLimit.Record_Date__c <= weekEndDateW2) {
                 if(!limitMap.containsKey('W2')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -276,7 +276,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('W2').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > weekStartDateW3 && objLimit.louie976__Record_Date__c <= weekEndDateW3) {
+            if(objLimit.Record_Date__c > weekStartDateW3 && objLimit.Record_Date__c <= weekEndDateW3) {
                 if(!limitMap.containsKey('W3')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -285,7 +285,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('W3').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > weekStartDateW4 && objLimit.louie976__Record_Date__c <= weekEndDateW4) {
+            if(objLimit.Record_Date__c > weekStartDateW4 && objLimit.Record_Date__c <= weekEndDateW4) {
                 if(!limitMap.containsKey('W4')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -358,12 +358,12 @@ public with sharing class LimitServiceCmpController {
         limitMap.put('M2',new List<Limit__c>());
         limitMap.put('M3',new List<Limit__c>());
         limitMap.put('M4',new List<Limit__c>());
-        List<Limit__c> limitList = [select id, louie976__API_Version_Range__c, louie976__API_Version_Count__c, louie976__Record_Date__c from Limit__c 
-                                    where louie976__Record_Date__c != null AND louie976__API_Version_Range__c !=null AND louie976__API_Version_Count__c !=null AND louie976__Record_Date__c >: monthStartDateM4 AND louie976__Record_Date__c <=: todayDate AND louie976__API_Version_Range__c IN: limitNameSet];
+        List<Limit__c> limitList = [select id, API_Version_Range__c, API_Version_Count__c, Record_Date__c from Limit__c 
+                                    where Record_Date__c != null AND API_Version_Range__c !=null AND API_Version_Count__c !=null AND Record_Date__c >: monthStartDateM4 AND Record_Date__c <=: todayDate AND API_Version_Range__c IN: limitNameSet];
         
         for(Limit__c objLimit : limitList) {
             
-            if(objLimit.louie976__Record_Date__c > monthStartDateM4 && objLimit.louie976__Record_Date__c <= monthEndDateM4) {
+            if(objLimit.Record_Date__c > monthStartDateM4 && objLimit.Record_Date__c <= monthEndDateM4) {
                 if(!limitMap.containsKey('M1')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -372,7 +372,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('M1').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > monthStartDateM3 && objLimit.louie976__Record_Date__c <= monthEndDateM3){
+            if(objLimit.Record_Date__c > monthStartDateM3 && objLimit.Record_Date__c <= monthEndDateM3){
                 if(!limitMap.containsKey('M2')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -381,7 +381,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('M2').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > monthStartDateM2 && objLimit.louie976__Record_Date__c <= monthEndDateM2) {
+            if(objLimit.Record_Date__c > monthStartDateM2 && objLimit.Record_Date__c <= monthEndDateM2) {
                 if(!limitMap.containsKey('M3')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -390,7 +390,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('M3').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > monthStartDateM1 && objLimit.louie976__Record_Date__c <= monthEndDateM1) {
+            if(objLimit.Record_Date__c > monthStartDateM1 && objLimit.Record_Date__c <= monthEndDateM1) {
                 if(!limitMap.containsKey('M4')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -529,12 +529,12 @@ public with sharing class LimitServiceCmpController {
         limitMap.put('W2',new List<Limit__c>());
         limitMap.put('W3',new List<Limit__c>());
         limitMap.put('W4',new List<Limit__c>());
-        List<Limit__c> limitList = [select id, louie976__API_Version_Range__c, louie976__API_Version_Count__c, louie976__Record_Date__c from Limit__c 
-                                    where louie976__Record_Date__c != null AND louie976__API_Version_Range__c !=null AND louie976__API_Version_Count__c !=null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate AND louie976__API_Version_Range__c IN: limitNameSet];
+        List<Limit__c> limitList = [select id, API_Version_Range__c, API_Version_Count__c, Record_Date__c from Limit__c 
+                                    where Record_Date__c != null AND API_Version_Range__c !=null AND API_Version_Count__c !=null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate AND API_Version_Range__c IN: limitNameSet];
         
         for(Limit__c objLimit : limitList) {
             
-            if(objLimit.louie976__Record_Date__c > weekStartDateW4 && objLimit.louie976__Record_Date__c <= weekEndDateW4) {
+            if(objLimit.Record_Date__c > weekStartDateW4 && objLimit.Record_Date__c <= weekEndDateW4) {
                 if(!limitMap.containsKey('W1')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -543,7 +543,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('W1').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > weekStartDateW3 && objLimit.louie976__Record_Date__c <= weekEndDateW3){
+            if(objLimit.Record_Date__c > weekStartDateW3 && objLimit.Record_Date__c <= weekEndDateW3){
                 if(!limitMap.containsKey('W2')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -552,7 +552,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('W2').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > weekStartDateW2 && objLimit.louie976__Record_Date__c <= weekEndDateW2) {
+            if(objLimit.Record_Date__c > weekStartDateW2 && objLimit.Record_Date__c <= weekEndDateW2) {
                 if(!limitMap.containsKey('W3')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -561,7 +561,7 @@ public with sharing class LimitServiceCmpController {
                     limitMap.get('W3').add(objLimit);		
                 }
             }
-            if(objLimit.louie976__Record_Date__c > weekStartDateW1 && objLimit.louie976__Record_Date__c <= weekEndDateW1) {
+            if(objLimit.Record_Date__c > weekStartDateW1 && objLimit.Record_Date__c <= weekEndDateW1) {
                 if(!limitMap.containsKey('W4')) {
                     List<Limit__c> limitList2 = new List<Limit__c>();
                     limitList2.add(objLimit);                      
@@ -605,8 +605,8 @@ public with sharing class LimitServiceCmpController {
             weekStartDateW4 = date.valueOf(dateStringW4.SubStringBefore('#'));
             weekEndDateW4 = date.valueOf(dateStringW4.SubStringAfter('#'));
 
-            List<Account> accList = [SELECT Id, Name, Industry, Type, louie976__Record_Date__c FROM Account 
-                                    WHERE louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate];
+            List<Account> accList = [SELECT Id, Name, Industry, Type, Record_Date__c FROM Account 
+                                    WHERE Record_Date__c != null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate];
             wrappMap.put('W1',new List<DataTrendsWrapper>());
             wrappMap.put('W2',new List<DataTrendsWrapper>());
             wrappMap.put('W3',new List<DataTrendsWrapper>());
@@ -615,7 +615,7 @@ public with sharing class LimitServiceCmpController {
                 DataTrendsWrapper objWrapp = new DataTrendsWrapper();
                 objWrapp.accObj = obj;
                 objWrapp.objName = 'Account';
-                if(obj.louie976__Record_Date__c > weekStartDateW1 && obj.louie976__Record_Date__c <= weekEndDateW1) {
+                if(obj.Record_Date__c > weekStartDateW1 && obj.Record_Date__c <= weekEndDateW1) {
                     if(!wrappMap.containsKey('W1')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -624,7 +624,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W1').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW2 && obj.louie976__Record_Date__c <= weekEndDateW2) {
+                if(obj.Record_Date__c > weekStartDateW2 && obj.Record_Date__c <= weekEndDateW2) {
                     if(!wrappMap.containsKey('W2')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -633,7 +633,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W2').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW3 && obj.louie976__Record_Date__c <= weekEndDateW3) {
+                if(obj.Record_Date__c > weekStartDateW3 && obj.Record_Date__c <= weekEndDateW3) {
                     if(!wrappMap.containsKey('W3')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -642,7 +642,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W3').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW4 && obj.louie976__Record_Date__c <= weekEndDateW4) {
+                if(obj.Record_Date__c > weekStartDateW4 && obj.Record_Date__c <= weekEndDateW4) {
                     if(!wrappMap.containsKey('W4')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -653,14 +653,14 @@ public with sharing class LimitServiceCmpController {
                 }
             }
 
-            List<Opportunity> oppList = [SELECT Id,Name,louie976__Record_Date__c FROM Opportunity 
-                                    WHERE louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate];
+            List<Opportunity> oppList = [SELECT Id,Name,CloseDate,StageName,Record_Date__c FROM Opportunity 
+                                    WHERE Record_Date__c != null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate];
             
             for(Opportunity obj: oppList) {
                 DataTrendsWrapper objWrapp = new DataTrendsWrapper();
                 objWrapp.oppObj = obj;
                 objWrapp.objName = 'Opportunity';
-                if(obj.louie976__Record_Date__c > weekStartDateW1 && obj.louie976__Record_Date__c <= weekEndDateW1) {
+                if(obj.Record_Date__c > weekStartDateW1 && obj.Record_Date__c <= weekEndDateW1) {
                     if(!wrappMap.containsKey('W1')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -669,7 +669,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W1').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW2 && obj.louie976__Record_Date__c <= weekEndDateW2) {
+                if(obj.Record_Date__c > weekStartDateW2 && obj.Record_Date__c <= weekEndDateW2) {
                     if(!wrappMap.containsKey('W2')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -678,7 +678,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W2').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW3 && obj.louie976__Record_Date__c <= weekEndDateW3) {
+                if(obj.Record_Date__c > weekStartDateW3 && obj.Record_Date__c <= weekEndDateW3) {
                     if(!wrappMap.containsKey('W3')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -687,7 +687,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W3').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW4 && obj.louie976__Record_Date__c <= weekEndDateW4) {
+                if(obj.Record_Date__c > weekStartDateW4 && obj.Record_Date__c <= weekEndDateW4) {
                     if(!wrappMap.containsKey('W4')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -698,14 +698,14 @@ public with sharing class LimitServiceCmpController {
                 }
             }
 
-            List<Lead> leadList = [SELECT Id,Name,louie976__Record_Date__c FROM Lead 
-                                    WHERE louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate];
+            List<Lead> leadList = [SELECT Id,Name,Record_Date__c FROM Lead 
+                                    WHERE Record_Date__c != null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate];
             
             for(Lead obj: leadList) {
                 DataTrendsWrapper objWrapp = new DataTrendsWrapper();
                 objWrapp.leadObj = obj;
                 objWrapp.objName = 'Lead';
-                if(obj.louie976__Record_Date__c > weekStartDateW1 && obj.louie976__Record_Date__c <= weekEndDateW1) {
+                if(obj.Record_Date__c > weekStartDateW1 && obj.Record_Date__c <= weekEndDateW1) {
                     if(!wrappMap.containsKey('W1')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -714,7 +714,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W1').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW2 && obj.louie976__Record_Date__c <= weekEndDateW2) {
+                if(obj.Record_Date__c > weekStartDateW2 && obj.Record_Date__c <= weekEndDateW2) {
                     if(!wrappMap.containsKey('W2')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -723,7 +723,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W2').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW3 && obj.louie976__Record_Date__c <= weekEndDateW3) {
+                if(obj.Record_Date__c > weekStartDateW3 && obj.Record_Date__c <= weekEndDateW3) {
                     if(!wrappMap.containsKey('W3')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -732,7 +732,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W3').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW4 && obj.louie976__Record_Date__c <= weekEndDateW4) {
+                if(obj.Record_Date__c > weekStartDateW4 && obj.Record_Date__c <= weekEndDateW4) {
                     if(!wrappMap.containsKey('W4')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -743,14 +743,14 @@ public with sharing class LimitServiceCmpController {
                 }
             }
 
-            List<Contact> conList = [SELECT Id,Name,louie976__Record_Date__c FROM Contact 
-                                    WHERE louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate];
+            List<Contact> conList = [SELECT Id,Name,Record_Date__c FROM Contact 
+                                    WHERE Record_Date__c != null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate];
             
             for(Contact obj: conList) {
                 DataTrendsWrapper objWrapp = new DataTrendsWrapper();
                 objWrapp.conObj = obj;
                 objWrapp.objName = 'Contact';
-                if(obj.louie976__Record_Date__c > weekStartDateW1 && obj.louie976__Record_Date__c <= weekEndDateW1) {
+                if(obj.Record_Date__c > weekStartDateW1 && obj.Record_Date__c <= weekEndDateW1) {
                     if(!wrappMap.containsKey('W1')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -759,7 +759,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W1').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW2 && obj.louie976__Record_Date__c <= weekEndDateW2) {
+                if(obj.Record_Date__c > weekStartDateW2 && obj.Record_Date__c <= weekEndDateW2) {
                     if(!wrappMap.containsKey('W2')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -768,7 +768,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W2').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW3 && obj.louie976__Record_Date__c <= weekEndDateW3) {
+                if(obj.Record_Date__c > weekStartDateW3 && obj.Record_Date__c <= weekEndDateW3) {
                     if(!wrappMap.containsKey('W3')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -777,7 +777,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W3').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW4 && obj.louie976__Record_Date__c <= weekEndDateW4) {
+                if(obj.Record_Date__c > weekStartDateW4 && obj.Record_Date__c <= weekEndDateW4) {
                     if(!wrappMap.containsKey('W4')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -788,14 +788,14 @@ public with sharing class LimitServiceCmpController {
                 }
             }
 
-            List<Case> caseList = [SELECT Id,louie976__Record_Date__c FROM Case 
-                                    WHERE louie976__Record_Date__c != null AND louie976__Record_Date__c >: weekStartDateW4 AND louie976__Record_Date__c <=: todayDate];
+            List<Case> caseList = [SELECT Id,Record_Date__c FROM Case 
+                                    WHERE Record_Date__c != null AND Record_Date__c >: weekStartDateW4 AND Record_Date__c <=: todayDate];
             
             for(Case obj: caseList) {
                 DataTrendsWrapper objWrapp = new DataTrendsWrapper();
                 objWrapp.caseObj = obj;
                 objWrapp.objName = 'Case';
-                if(obj.louie976__Record_Date__c > weekStartDateW1 && obj.louie976__Record_Date__c <= weekEndDateW1) {
+                if(obj.Record_Date__c > weekStartDateW1 && obj.Record_Date__c <= weekEndDateW1) {
                     if(!wrappMap.containsKey('W1')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -804,7 +804,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W1').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW2 && obj.louie976__Record_Date__c <= weekEndDateW2) {
+                if(obj.Record_Date__c > weekStartDateW2 && obj.Record_Date__c <= weekEndDateW2) {
                     if(!wrappMap.containsKey('W2')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -813,7 +813,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W2').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW3 && obj.louie976__Record_Date__c <= weekEndDateW3) {
+                if(obj.Record_Date__c > weekStartDateW3 && obj.Record_Date__c <= weekEndDateW3) {
                     if(!wrappMap.containsKey('W3')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      
@@ -822,7 +822,7 @@ public with sharing class LimitServiceCmpController {
                         wrappMap.get('W3').add(objWrapp);		
                     }
                 }
-                if(obj.louie976__Record_Date__c > weekStartDateW4 && obj.louie976__Record_Date__c <= weekEndDateW4) {
+                if(obj.Record_Date__c > weekStartDateW4 && obj.Record_Date__c <= weekEndDateW4) {
                     if(!wrappMap.containsKey('W4')) {
                         List<DataTrendsWrapper> wrapList = new List<DataTrendsWrapper>();
                         wrapList.add(objWrapp);                      

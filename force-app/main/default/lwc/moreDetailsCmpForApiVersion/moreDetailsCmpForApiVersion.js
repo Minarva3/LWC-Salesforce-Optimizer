@@ -54,20 +54,20 @@ export default class MoreDetailsCmpForApiVersion extends LightningElement {
                     weekChartLabel.push(key);
                     allData.push(data);
                     data[key].forEach(limitObj => {
-                        if (limitObj.louie976__API_Version_Range__c == '10-20') {
-                            weekFirstRangeValues.push(limitObj.louie976__API_Version_Count__c)   
+                        if (limitObj.API_Version_Range__c == '10-20') {
+                            weekFirstRangeValues.push(limitObj.API_Version_Count__c)   
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '20-30') {
-                            weekSecondRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '20-30') {
+                            weekSecondRangeValues.push(limitObj.API_Version_Count__c)
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '30-40') {
-                            weekThirdRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '30-40') {
+                            weekThirdRangeValues.push(limitObj.API_Version_Count__c)
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '40-50') {
-                            weekForthRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '40-50') {
+                            weekForthRangeValues.push(limitObj.API_Version_Count__c)
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '50-60') {
-                            weekFifthRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '50-60') {
+                            weekFifthRangeValues.push(limitObj.API_Version_Count__c)
                         }
                        
 
@@ -222,20 +222,20 @@ export default class MoreDetailsCmpForApiVersion extends LightningElement {
 
                     monthChartLabel.push(key);
                     data[key].forEach(limitObj => {
-                        if (limitObj.louie976__API_Version_Range__c == '10-20') {
-                            monthFirstRangeValues.push(limitObj.louie976__API_Version_Count__c)   
+                        if (limitObj.API_Version_Range__c == '10-20') {
+                            monthFirstRangeValues.push(limitObj.API_Version_Count__c)   
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '20-30') {
-                            monthSecondRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '20-30') {
+                            monthSecondRangeValues.push(limitObj.API_Version_Count__c)
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '30-40') {
-                            monthThirdRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '30-40') {
+                            monthThirdRangeValues.push(limitObj.API_Version_Count__c)
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '40-50') {
-                            monthForthRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '40-50') {
+                            monthForthRangeValues.push(limitObj.API_Version_Count__c)
                         }
-                        if (limitObj.louie976__API_Version_Range__c == '50-60') {
-                            monthFifthRangeValues.push(limitObj.louie976__API_Version_Count__c)
+                        if (limitObj.API_Version_Range__c == '50-60') {
+                            monthFifthRangeValues.push(limitObj.API_Version_Count__c)
                         }
                        
 

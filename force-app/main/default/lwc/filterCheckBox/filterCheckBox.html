@@ -1,0 +1,112 @@
+<template>
+    <lightning-button label=" Filter" onclick={handleclick} icon-name="utility:filterList"></lightning-button>
+   
+    <template if:true={showModal}>
+        <div class="modal-open">
+        <lightning-card class="slds" >
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                    icon-class="slds-button_icon-inverse" onclick={handleDialogClose}></lightning-button-icon>
+                <lightning-button variant="neutral" label="Clear Filters" onclick={handleClearFilters}
+                    class="slds-float_right"></lightning-button>
+                <h2 class="slds-text-heading_medium slds-hyphenate header-string">
+                   Select Limits
+                </h2>
+            </header>
+            <lightning-card>
+                <div class="scrollable-options">
+                <lightning-checkbox-group name="Checkbox Group"
+                                          label="Checkbox Group"
+                                          options={options}
+                                          value={value}
+                                          onchange={handleChange}
+                                          class="slds-p-left_small"></lightning-checkbox-group>
+                                        </div>
+                                       
+                <!-- <p>Selected Values are: {selectedValues}</p> -->
+                <template if:true={handleShowSelectioninModel}>
+                    <div class="selected-values">
+                        <template for:each={value} for:item="val">
+                            <lightning-pill label={val} key={val} onremove={removeSelectedValue} data-value={val}></lightning-pill>
+                        </template>
+                    </div>
+                </template>
+                <!-- <lightning-button label="Close" onclick={handleclick1}></lightning-button> -->
+            </lightning-card>
+        </div>
+        </section>
+   
+    </lightning-card>
+</div>
+    </template>
+   
+    <template if:true={handleShowSelection}>
+        <div class="selected-values">
+            <template for:each={value} for:item="val">
+                <lightning-pill label={val} key={val} onremove={removeSelectedValue} data-value={val}></lightning-pill>
+            </template>
+        </div>
+    </template>
+    <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+        <template if:true={showEmailApi}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-bar-chart-for-limit-service-parent></c-bar-chart-for-limit-service-parent>
+                </span>
+            </div>
+        </template>
+        <template if:true={showAPILimit}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-bar-chart-trend-line></c-bar-chart-trend-line>
+                </span>
+            </div>
+        </template>
+        <template if:true={showStorageLimit}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-storage-limit-parent-cmp></c-storage-limit-parent-cmp>
+                </span>
+            </div>
+        </template>
+        <template if:true={showDashboardLimit}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-dashboard-limit-parent-cmp></c-dashboard-limit-parent-cmp>
+                </span>
+            </div>
+        </template>
+        <template if:true={showAPIVersion}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-a-p-i-version></c-a-p-i-version>
+                </span>
+            </div>
+        </template>
+        <template if:true={showReportLimit}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-doughnut-chart-report></c-doughnut-chart-report>
+                </span>
+            </div>
+        </template>
+        <template if:true={showDataTrendLimit}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-data-trends-cmp></c-data-trends-cmp>
+                </span>
+            </div>
+        </template>
+        <template if:true={showHourlyDashboardLimit}>
+            <div class="slds-size_1-of-2">
+                <span>
+                    <c-hourly-pie></c-hourly-pie>
+                </span>
+            </div>
+        </template>
+    </div>    
+</template>
+ 

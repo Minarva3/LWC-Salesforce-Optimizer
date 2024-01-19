@@ -72,8 +72,8 @@ export default class MoreDetailsCmpForTrendLine extends LightningElement {
                         
                         if (limitObj.Limit_Name__c == 'DailyApiRequests') {
                             //console.log('======key====='+key);
-                            sumDataBlue += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;
-                            sumDataGray += limitObj.louie976__Remaining__c;
+                            sumDataBlue += limitObj.Max__c - limitObj.Remaining__c;
+                            sumDataGray += limitObj.Remaining__c;
                         }
 
                     });

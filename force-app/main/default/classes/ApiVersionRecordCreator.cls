@@ -29,41 +29,41 @@ public class ApiVersionRecordCreator {
 
         if (count10To20 > 0) {
             Limit__c obj1 = new Limit__c();
-            obj1.louie976__API_Version_Range__c = '10-20';
-            obj1.louie976__API_Version_Count__c = count10To20;
-            obj1.louie976__Record_Date__c = currentDateTime;
+            obj1.API_Version_Range__c = '10-20';
+            obj1.API_Version_Count__c = count10To20;
+            obj1.Record_Date__c = currentDateTime;
             recordsToInsert.add(obj1);
         }
 
         if (count20To30 > 0) {
             Limit__c obj2 = new Limit__c();
-            obj2.louie976__API_Version_Range__c = '20-30';
-            obj2.louie976__API_Version_Count__c = count20To30;
-            obj2.louie976__Record_Date__c = currentDateTime;
+            obj2.API_Version_Range__c = '20-30';
+            obj2.API_Version_Count__c = count20To30;
+            obj2.Record_Date__c = currentDateTime;
             recordsToInsert.add(obj2);
         }
 
         if (count30To40 > 0) {
             Limit__c obj3 = new Limit__c();
-            obj3.louie976__API_Version_Range__c = '30-40';
-            obj3.louie976__API_Version_Count__c = count30To40;
-            obj3.louie976__Record_Date__c = currentDateTime;
+            obj3.API_Version_Range__c = '30-40';
+            obj3.API_Version_Count__c = count30To40;
+            obj3.Record_Date__c = currentDateTime;
             recordsToInsert.add(obj3);
         }
 
         if (count40To50 > 0) {
             Limit__c obj4 = new Limit__c();
-            obj4.louie976__API_Version_Range__c = '40-50';
-            obj4.louie976__API_Version_Count__c = count40To50;
-            obj4.louie976__Record_Date__c = currentDateTime;
+            obj4.API_Version_Range__c = '40-50';
+            obj4.API_Version_Count__c = count40To50;
+            obj4.Record_Date__c = currentDateTime;
             recordsToInsert.add(obj4);
         }
 
         if (count50To60 > 0) {
             Limit__c obj5 = new Limit__c();
-            obj5.louie976__API_Version_Range__c = '50-60';
-            obj5.louie976__API_Version_Count__c = count50To60;
-            obj5.louie976__Record_Date__c = currentDateTime;
+            obj5.API_Version_Range__c = '50-60';
+            obj5.API_Version_Count__c = count50To60;
+            obj5.Record_Date__c = currentDateTime;
             recordsToInsert.add(obj5);
         }
 

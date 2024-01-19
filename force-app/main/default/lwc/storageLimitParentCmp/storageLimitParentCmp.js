@@ -36,11 +36,11 @@ export default class StorageLimitParentCmp extends LightningElement {
                         data[key].forEach(limitObj => {
                             if (limitObj.Limit_Name__c == 'FileStorageMB') {
                                 
-                                fileStorageMB.push({y:limitObj.louie976__Max__c - limitObj.louie976__Remaining__c,x:0});
+                                fileStorageMB.push({y:limitObj.Max__c - limitObj.Remaining__c,x:0});
                             }
                             if (limitObj.Limit_Name__c == 'DataStorageMB') {
                                 
-                                dataStorageMB.push({y:limitObj.louie976__Max__c - limitObj.louie976__Remaining__c,x:0});
+                                dataStorageMB.push({y:limitObj.Max__c - limitObj.Remaining__c,x:0});
                             }
                         });
                         //this.mapData.push({value:data[key], key:key});

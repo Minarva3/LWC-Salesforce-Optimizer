@@ -85,16 +85,16 @@ export default class MoreDetailsCmpForDashboard extends LightningElement {
                         chartLabel.push(key);
                         data[key].forEach(limitObj => {
                             if (limitObj.Limit_Name__c == 'HourlyDashboardResults') {
-                                sumHourlyDashboardResults += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;
+                                sumHourlyDashboardResults += limitObj.Max__c - limitObj.Remaining__c;
                             }
                             if (limitObj.Limit_Name__c == 'HourlySyncReportRuns') {
-                                sumHourlySyncReportRuns += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;   
+                                sumHourlySyncReportRuns += limitObj.Max__c - limitObj.Remaining__c;   
                             }
                             if (limitObj.Limit_Name__c == 'HourlyDashboardRefreshes') {
-                                sumHourlyDashboardRefreshes += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;                             
+                                sumHourlyDashboardRefreshes += limitObj.Max__c - limitObj.Remaining__c;                             
                             }
                             if (limitObj.Limit_Name__c == 'HourlyAsyncReportRuns') {
-                                sumHourlyAsyncReportRuns += limitObj.louie976__Max__c - limitObj.louie976__Remaining__c;                             
+                                sumHourlyAsyncReportRuns += limitObj.Max__c - limitObj.Remaining__c;                             
                             }
 
                         });
